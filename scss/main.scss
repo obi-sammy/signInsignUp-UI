@@ -1,0 +1,156 @@
+@import 'config';
+
+html {
+    font-size: 62.5%;
+}
+
+main {
+    @include flex(row, 0);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 7rem auto 0 auto;
+    width: 85rem;
+    height: 50rem;
+    background-color: $secondary;
+    box-shadow: 0 0 1em #e5e5e5;
+    font-family: 'Source Serif Pro', serif;
+    border-radius: 0.5rem;
+}
+
+.largerBox {
+    position: absolute;
+    width: 60%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
+
+    section {
+        @include flex(column, 3rem);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: weight(bold);
+            color: $primary;
+            letter-spacing: 0.1rem;
+        }
+    }
+
+    .existingAccount {
+        display: none;
+    }
+}
+
+.smallerBox {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: $primary;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    transition: all 1s ease-in-out;
+
+    section {
+        @include flex(column, 2.7rem);
+        height: 100%;
+        align-items: center;
+        justify-content: space-around;
+        
+        h2 {
+            color: $white;
+            font-size: 2.2rem;
+        }
+
+        button {
+            @include button;
+            border: 1.7px solid $secondary;
+            background-color: $primary;
+            color: $secondary;
+            margin-bottom: 3rem;
+
+            &:hover {
+                transform: translateY(2px);
+            }
+        }
+    }
+
+    .newUser {
+        display: none;
+    }
+}
+
+form {
+    @include  flex(column, 0.6rem);
+    width: 75%;
+    margin-bottom: 5rem;
+
+    label {
+        font-size: 1.5rem;
+        font-weight: weight(medium);
+    }
+
+    input {
+        height: 3rem;
+        width: 100%;
+        border: 1px solid #e5e5e5;
+        background-color: #e6e6e6;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        @include button;
+        background-color: $primary;
+        color: $secondary;
+        border: none;
+         
+        &:hover {
+            background-color: $secondary;
+            color: $primary;
+            border: 1px solid $primary;
+            transition: 0.5s ease-out;
+        }
+    }
+}
+
+.largerBox.slideRight {
+    left: 100%;
+    transform: translateX(-100%);
+
+    .existingAccount {
+        display: flex;
+    }
+
+    .newAccount {
+        display: none;
+    }
+}
+
+.smallerBox.slideLeft {
+    right: 100%;
+    transform: translateX(100%);
+
+    .newUser {
+        display: flex;
+    }
+
+    .existingUser {
+        display: none;
+    }
+}
+
+.borderRadius {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}

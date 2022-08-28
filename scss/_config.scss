@@ -1,0 +1,34 @@
+$primary: #097969;
+$secondary: #f7f7f7;
+$white: #fff;
+
+$fontWeight: (
+    'light': 400,
+    'medium': 600,
+    'bold': 700
+);
+
+@function weight($weights) {
+    @return map-get($fontWeight, $weights)
+};
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flex($direction, $gap){
+    display: flex;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+@mixin button() {
+    width: 15rem;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    height: 4rem;
+    align-self: center;
+    cursor: pointer;
+}
